@@ -8,9 +8,27 @@
   "engines": {
     "vscode": "^1.125.0"
   },
+  "keywords": [
+    "json",
+    "import",
+    "auto import",
+    "autocomplete",
+    "completion",
+    "typescript",
+    "javascript",
+    "vue",
+    "tsx",
+    "jsx",
+    "json import",
+    "json auto import",
+    "developer",
+    "productivity",
+    "intellisense"
+  ],
   "icon": "images/logo.png",
   "license": "MIT",
   "categories": [
+    "Programming Languages",
     "Other"
   ],
   "activationEvents": [

@@ -1,6 +1,6 @@
 {
-    "displayName": "JSON Auto Import",
-    "description": "Auto import JSON files.",
+    "displayName": "JSON Auto Import ",
+    "description": "Auto import JSON files. And provide intelligent auto-completion.",
     "config.title": "JSON Auto Import",
     "config.languages.description": "Language IDs enabled for this extension.",
     "config.keepExtension.description": "Keep the file extension in import paths.",

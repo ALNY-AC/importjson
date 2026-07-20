@@ -3,7 +3,7 @@
 
 [English](README.md)
 
-自动导入 JSON 文件。
+自动导入 JSON 文件，并具备智能自动补全功能。
 
 ## 功能
 

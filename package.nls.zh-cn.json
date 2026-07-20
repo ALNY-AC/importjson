@@ -1,6 +1,6 @@
 {
     "displayName": "JSON 自动导入",
-    "description": "自动导入 JSON 文件。",
+    "description": "自动导入 JSON 文件。并实现自动补全。",
     "config.title": "JSON 自动导入",
     "config.languages.description": "插件生效的语言 ID 列表。",
     "config.keepExtension.description": "导入路径是否保留文件扩展名。",
