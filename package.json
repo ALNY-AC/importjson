@@ -4,6 +4,7 @@
   "description": "%description%",
   "version": "1.0.0",
   "publisher": "san-studio",
+  "repository": "https://github.com/ALNY-AC/importjson",
   "engines": {
     "vscode": "^1.125.0"
   },

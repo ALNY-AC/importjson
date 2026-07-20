@@ -1,7 +1,7 @@
 
 # JSON Auto Import
 
-[中文](README.zh-CN.md)
+[中文](https://github.com/ALNY-AC/importjson/blob/master/README.zh-CN.md)
 
 Automatically import JSON files with intelligent auto-completion.
 
@@ -16,17 +16,7 @@ Automatically import JSON files with intelligent auto-completion.
 
 ## Preview
 
-### Auto Completion
-
-![completion](images/completion.png)
-
-### Drag & Drop
-
-![drag](images/drag-drop.png)
-
-### Settings
-
-![settings](images/settings.png)
+![completion](images/completion.jpg)
 
 ---
 

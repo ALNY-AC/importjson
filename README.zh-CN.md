@@ -16,17 +16,7 @@
 
 ## 演示
 
-### 自动补全
-
-![completion](images/completion.png)
-
-### 拖拽导入
-
-![drag](images/drag-drop.png)
-
-### 插件配置
-
-![settings](images/settings.png)
+![completion](images/completion.jpg)
 
 ---
 
