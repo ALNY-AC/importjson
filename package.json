@@ -2,7 +2,7 @@
   "name": "importjson",
   "displayName": "%displayName%",
   "description": "%description%",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "publisher": "san-studio",
   "repository": "https://github.com/ALNY-AC/importjson",
   "engines": {
