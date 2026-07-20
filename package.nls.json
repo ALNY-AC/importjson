@@ -1,0 +1,16 @@
+{
+    "displayName": "JSON Auto Import",
+    "description": "Auto import JSON files.",
+    "config.title": "JSON Auto Import",
+    "config.languages.description": "Language IDs enabled for this extension.",
+    "config.keepExtension.description": "Keep the file extension in import paths.",
+    "config.variableName.description": "Variable naming strategy. 'keep' preserves the original filename. If the filename contains invalid identifier characters (such as '-', spaces, etc.), they will NOT be modified automatically. Please rename them manually.",
+    "config.variableName.keep": "Keep original filename.",
+    "config.variableName.lowercase": "lowercase",
+    "config.variableName.uppercase": "UPPERCASE",
+    "config.variableName.snake": "snake_case",
+    "config.variableName.screamingSnake": "SCREAMING_SNAKE_CASE",
+    "config.variableName.camel": "camelCase",
+    "config.variableName.pascal": "PascalCase",
+    "config.variableName.kebab": "kebab-case (Not recommended for variables)"
+}

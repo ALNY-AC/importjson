@@ -1,0 +1,16 @@
+{
+    "displayName": "JSON 自动导入",
+    "description": "自动导入 JSON 文件。",
+    "config.title": "JSON 自动导入",
+    "config.languages.description": "插件生效的语言 ID 列表。",
+    "config.keepExtension.description": "导入路径是否保留文件扩展名。",
+    "config.variableName.description": "导入变量命名方式。选择「保留原始文件名（keep）」时，将直接使用文件名作为变量名；如果文件名包含非法标识符（例如 -、空格等），不会自动修正，请自行修改。",
+    "config.variableName.keep": "保留原始文件名（keep）",
+    "config.variableName.lowercase": "全部小写（lowercase）",
+    "config.variableName.uppercase": "全部大写（UPPERCASE）",
+    "config.variableName.snake": "短下划线（snake_case）",
+    "config.variableName.screamingSnake": "全大写下划线（SCREAMING_SNAKE_CASE）",
+    "config.variableName.camel": "小驼峰（camelCase）",
+    "config.variableName.pascal": "大驼峰（PascalCase）",
+    "config.variableName.kebab": "短横线（kebab-case，不建议用于变量）"
+}

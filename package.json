@@ -1,0 +1,92 @@
+{
+  "name": "importjson",
+  "displayName": "%displayName%",
+  "description": "%description%",
+  "version": "1.0.0",
+  "publisher": "san-studio",
+  "engines": {
+    "vscode": "^1.125.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:typescript",
+    "onLanguage:javascript",
+    "onLanguage:vue"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "%config.title%",
+      "properties": {
+        "jsonAutoImport.languages": {
+          "type": "array",
+          "default": [
+            "typescript",
+            "typescriptreact",
+            "javascript",
+            "javascriptreact",
+            "vue"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "markdownDescription": "%config.languages.description%"
+        },
+        "jsonAutoImport.keepExtension": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "%config.keepExtension.description%"
+        },
+        "jsonAutoImport.variableName": {
+          "type": "string",
+          "default": "snake_case",
+          "markdownDescription": "%config.variableName.description%",
+          "enum": [
+            "keep",
+            "lowercase",
+            "UPPERCASE",
+            "snake_case",
+            "SCREAMING_SNAKE_CASE",
+            "camelCase",
+            "PascalCase",
+            "kebab-case"
+          ],
+          "enumDescriptions": [
+            "%config.variableName.keep%",
+            "%config.variableName.lowercase%",
+            "%config.variableName.uppercase%",
+            "%config.variableName.snake%",
+            "%config.variableName.screamingSnake%",
+            "%config.variableName.camel%",
+            "%config.variableName.pascal%",
+            "%config.variableName.kebab%"
+          ]
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.125.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "24.x",
+    "typescript-eslint": "^8.61.1",
+    "eslint": "^10.5.0",
+    "typescript": "^6.0.3",
+    "@vscode/test-cli": "^0.0.15",
+    "@vscode/test-electron": "^3.0.0"
+  },
+  "overrides": {
+    "diff": "^8.0.4",
+    "serialize-javascript": "^7.0.6"
+  }
+}
