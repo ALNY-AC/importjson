@@ -94,6 +94,38 @@ function buildImport(document: vscode.TextDocument, file: vscode.Uri) {
   };
 }
 
+function getImportInsertPosition(document: vscode.TextDocument): vscode.Position {
+
+  const text = document.getText();
+
+  // 1. 找最后一个 import
+  const importRegex = /^[ \t]*import[\s\S]*?;?[ \t]*$/gm;
+
+  let lastImport: RegExpExecArray | null = null;
+  let match: RegExpExecArray | null;
+
+  while ((match = importRegex.exec(text)) !== null) {
+    lastImport = match;
+  }
+
+  if (lastImport) {
+    const end = document.positionAt(lastImport.index + lastImport[0].length);
+    return new vscode.Position(end.line + 1, 0);
+  }
+
+  // 2. Vue：找 <script ...>
+  const scriptRegex = /<script\b[^>]*>/i;
+  const scriptMatch = scriptRegex.exec(text);
+
+  if (scriptMatch) {
+    const end = document.positionAt(scriptMatch.index + scriptMatch[0].length);
+    return new vscode.Position(end.line + 1, 0);
+  }
+
+  // 3. 默认文件开头
+  return new vscode.Position(0, 0);
+}
+
 export function activate(context: vscode.ExtensionContext) {
 
   const provider = vscode.languages.registerCompletionItemProvider(
@@ -125,7 +157,7 @@ ${info.importCode}
           if (!text.includes(info.importCode)) {
             item.additionalTextEdits = [
               vscode.TextEdit.insert(
-                new vscode.Position(0, 0),
+                getImportInsertPosition(document),
                 info.importCode + '\n'
               )
             ];
@@ -155,9 +187,20 @@ ${info.importCode}
 
         const info = buildImport(document, uri);
 
-        return new vscode.DocumentDropEdit(
-          new vscode.SnippetString(info.importCode)
+        // return new vscode.DocumentDropEdit(
+        //   new vscode.SnippetString(info.importCode)
+        // );
+        const edit = new vscode.DocumentDropEdit('');
+
+        edit.additionalEdit = new vscode.WorkspaceEdit();
+
+        edit.additionalEdit.insert(
+          document.uri,
+          getImportInsertPosition(document),
+          info.importCode + '\n'
         );
+
+        return edit;
       }
     }
   );
