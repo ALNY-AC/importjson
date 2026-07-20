@@ -16,7 +16,7 @@ Automatically import JSON files with intelligent auto-completion.
 
 ## Preview
 
-![completion](images/completion.jpg)
+![completion](https://github.com/ALNY-AC/importjson/raw/master/images/completion.jpg)
 
 ---
 

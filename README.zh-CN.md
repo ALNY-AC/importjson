@@ -16,7 +16,7 @@
 
 ## 演示
 
-![completion](images/completion.jpg)
+![completion](https://github.com/ALNY-AC/importjson/raw/master/images/completion.jpg)
 
 ---
 
