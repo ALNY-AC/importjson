@@ -33,16 +33,6 @@
 
 ---
 
-## 插件配置
-
-| 配置项 | 说明 |
-| ------- | ---- |
-| jsonAutoImport.languages | 支持的语言 |
-| jsonAutoImport.keepExtension | 是否保留扩展名 |
-| jsonAutoImport.variableName | 变量命名方式 |
-
----
-
 ## 环境要求
 
 VS Code >= 1.95

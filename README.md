@@ -35,16 +35,6 @@ Supported styles:
 
 ---
 
-## Configuration
-
-| Setting | Description |
-| -------- | ----------- |
-| jsonAutoImport.languages | Supported language ids |
-| jsonAutoImport.keepExtension | Keep file extension |
-| jsonAutoImport.variableName | Variable naming style |
-
----
-
 ## Requirements
 
 VS Code >= 1.95
