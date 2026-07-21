@@ -12,5 +12,8 @@
     "config.variableName.screamingSnake": "SCREAMING_SNAKE_CASE",
     "config.variableName.camel": "camelCase",
     "config.variableName.pascal": "PascalCase",
-    "config.variableName.kebab": "kebab-case (Not recommended for variables)"
+    "config.variableName.kebab": "kebab-case (Not recommended for variables)",
+    "config.searchPaths.description": "Directories to scan, relative to the workspace root. Supports multiple entries. Example: src, src/data, packages/core/assets. All subdirectories will be scanned automatically.",
+    "config.excludePaths.description": "Directories to exclude from scanning, relative to the workspace root. Supports multiple entries. Example: node_modules, dist, src/generated. All subdirectories will be excluded automatically.",
+    "config.useGitIgnore.description": "Exclude files ignored by Git (.gitignore)."
 }

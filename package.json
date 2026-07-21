@@ -84,6 +84,27 @@
             "%config.variableName.pascal%",
             "%config.variableName.kebab%"
           ]
+        },
+        "jsonAutoImport.searchPaths": {
+          "type": "array",
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "markdownDescription": "%config.searchPaths.description%"
+        },
+        "jsonAutoImport.excludePaths": {
+          "type": "array",
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "markdownDescription": "%config.excludePaths.description%"
+        },
+        "jsonAutoImport.useGitIgnore": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "%config.useGitIgnore.description%"
         }
       }
     }

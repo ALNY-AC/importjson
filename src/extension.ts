@@ -126,6 +126,103 @@ function getImportInsertPosition(document: vscode.TextDocument): vscode.Position
   return new vscode.Position(0, 0);
 }
 
+function getUseGitIgnore(): boolean {
+  return getConfig().get('useGitIgnore', true);
+}
+
+function getSearchPaths(): string[] {
+  return getConfig().get('searchPaths', []);
+}
+
+function getExcludePaths(): string[] {
+  return getConfig().get('excludePaths', []);
+}
+
+
+async function buildIncludeGlob(): Promise<string> {
+
+  const paths = getSearchPaths()
+    .map(v => v.trim())
+    .filter(Boolean);
+
+  if (!paths.length) {
+    return '**/*.json';
+  }
+
+  return `{${paths.map(v => `${v}/**/*.json`).join(',')}}`;
+
+}
+async function buildExcludeGlob(): Promise<string | undefined> {
+
+  const excludes = new Set<string>();
+
+  // 配置排除目录
+  for (const dir of getExcludePaths()) {
+
+    const value = dir.trim();
+
+    if (value) {
+      excludes.add(value);
+    }
+
+  }
+
+  // .gitignore
+  if (getUseGitIgnore()) {
+
+    const folders = vscode.workspace.workspaceFolders ?? [];
+
+    for (const folder of folders) {
+
+      try {
+
+        const uri = vscode.Uri.joinPath(folder.uri, '.gitignore');
+
+        const bytes = await vscode.workspace.fs.readFile(uri);
+
+        const text = Buffer.from(bytes).toString('utf8');
+
+        for (let line of text.split(/\r?\n/)) {
+
+          line = line.trim();
+
+          if (
+            !line ||
+            line.startsWith('#') ||
+            line.startsWith('!')
+          ) {
+            continue;
+          }
+
+          line = line.replace(/^\/|\/$/g, '');
+
+          if (line) {
+            excludes.add(line);
+          }
+
+        }
+
+      } catch { }
+
+    }
+
+  }
+
+  if (!excludes.size) {
+    return undefined;
+  }
+
+  return `**/{${[...excludes].join(',')}}/**`;
+
+}
+async function findJsonFiles(): Promise<vscode.Uri[]> {
+
+  return vscode.workspace.findFiles(
+    await buildIncludeGlob(),
+    await buildExcludeGlob()
+  );
+
+}
 export function activate(context: vscode.ExtensionContext) {
 
   const provider = vscode.languages.registerCompletionItemProvider(
@@ -134,7 +231,10 @@ export function activate(context: vscode.ExtensionContext) {
       async provideCompletionItems(document) {
 
         const text = document.getText();
-        const files = await vscode.workspace.findFiles('**/*.json');
+        const files = await findJsonFiles();
+        // const files = await vscode.workspace.findFiles('**/*.json', '**/{node_modules,dist}/**');
+        console.log(files.map(f => f.fsPath).join('\n'));
+
 
         return files.map(file => {
 
@@ -186,10 +286,6 @@ ${info.importCode}
         }
 
         const info = buildImport(document, uri);
-
-        // return new vscode.DocumentDropEdit(
-        //   new vscode.SnippetString(info.importCode)
-        // );
         const edit = new vscode.DocumentDropEdit('');
 
         edit.additionalEdit = new vscode.WorkspaceEdit();

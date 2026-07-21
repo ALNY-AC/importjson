@@ -12,5 +12,8 @@
     "config.variableName.screamingSnake": "全大写下划线（SCREAMING_SNAKE_CASE）",
     "config.variableName.camel": "小驼峰（camelCase）",
     "config.variableName.pascal": "大驼峰（PascalCase）",
-    "config.variableName.kebab": "短横线（kebab-case，不建议用于变量）"
+    "config.variableName.kebab": "短横线（kebab-case，不建议用于变量）",
+    "config.searchPaths.description": "需要扫描的目录（相对于工作区根目录），支持配置多个目录。示例：src、src/data、packages/core/assets。配置后会自动扫描该目录下的所有子目录，无需逐级填写。",
+    "config.excludePaths.description": "需要排除扫描的目录（相对于工作区根目录），支持配置多个目录。示例：node_modules、dist、src/generated。配置后会自动排除该目录下的所有子目录。",
+    "config.useGitIgnore.description": "是否排除 Git（.gitignore）忽略的文件。"
 }
